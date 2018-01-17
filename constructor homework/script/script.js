@@ -1,18 +1,12 @@
 $(document).ready(function () {
 
-
-
-
-    
-
     function Person(firstname, lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.fullName = function () {
-            console.log(this.firstname + " " + this.lastname);
+            // console.log(this.firstname + " " + this.lastname);
+            return this.firstname + " " + this.lastname;
         }
-
-
 
     }
 
@@ -28,42 +22,36 @@ $(document).ready(function () {
 
         this.addPerson = person => {
             persons.push(person);
-            persons.forEach(add => {
-                add.fullName();
-            })
+            // persons.forEach(add => {
+            //     add.fullName();
+            // })
         }
 
         this.removePerson = person => {
-
-            persons.splice(i, 1);
-            persons.forEach(remove => {
-                remove.fullName();
-            })
+            let i = persons.indexOf(); // this was missing
+            let removed = persons.splice(i, 1);
+            console.log(`The person ${person.fullName()} has been successfully Removed!`);
+            // persons.forEach(remove => {
+            //     remove.fullName();
+            // })
 
         }
 
         this.getPeople = function() {
-           persons.forEach(add => {
-                add.fullName();
+            console.log(`These are the people in our database:`);
+            persons.forEach(add => {
+                console.log(add.fullName());
             })
         }
     }
 
-
-    let person = new AdressBook();
-    person.addPerson(person2);
-    person.addPerson(person3);
-    person.addPerson(person4);
-    person.addPerson(person5);
-    person.addPerson(person6);
-    person.removePerson(person1);
+    let people = new AdressBook();
+    people.addPerson(person2);
+    people.addPerson(person3);
+    people.addPerson(person4);
+    people.addPerson(person5);
+    people.addPerson(person6);
+    people.removePerson(person1);
   
-    person.getPeople();
-
-
-
-
-
-
-
+    people.getPeople();
 });
