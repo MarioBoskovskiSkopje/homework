@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 
 
-    var print = $("<p>").appendTo(".print");
+    
 
     function person(firstname, lastname) {
         this.firstname = firstname;
@@ -25,18 +25,46 @@ $(document).ready(function () {
 
     function adressBook() {
         var persons = [];
-        persons.push(person1);
-        persons.push(person2);
-        persons.push(person3);
-        persons.push(person4);
-        persons.push(person5);
-        persons.push(person6);
 
-        console.log(persons);
+        this.addPerson = person => {
+            persons.push(person1);
+            persons.push(person2);
+            persons.push(person3);
+            persons.push(person4);
+            persons.push(person5);
+            persons.push(person6);
+            persons.forEach(add => {
+                add.fullName();
+            })
+
+
+        }
+
+        this.removePerson = person => {
+
+            persons.splice(i, 1);
+            persons.forEach(remove => {
+                remove.fullName();
+            })
+
+        }
+
+        this.getPeople = function getAllPeople() {
+           console.log(adressBook.getPeople);
+        }
     }
 
-    adressBook();
 
+    let person = new adressBook();
+    person.removePerson(person1);
+    person.addPerson(person2);
+    person.addPerson(person3);
+    person.addPerson(person4);
+    person.addPerson(person5);
+    person.addPerson(person6);
+
+
+    person.getPeople();
 
 
 
